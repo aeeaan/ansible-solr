@@ -1,2 +1,7 @@
 ---
-# defaults file for solr
+solr_version: 5.1.0
+solr_mirror: http://mirror.cogentco.com/pub/apache/lucene/solr
+solr_package_name: "solr-{{ solr_version }}"
+solr_archive: "{{ solr_package_name }}.tgz"
+solr_download_url: "{{ solr_mirror }}/{{ solr_version }}/{{ solr_archive }}"
+solr_home: /opt/solr
