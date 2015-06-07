@@ -5,3 +5,4 @@ solr_package_name: "solr-{{ solr_version }}"
 solr_archive: "{{ solr_package_name }}.tgz"
 solr_download_url: "{{ solr_mirror }}/{{ solr_version }}/{{ solr_archive }}"
 solr_home: /opt/solr
+solr_user: solr

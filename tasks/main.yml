@@ -1,13 +1,50 @@
 ---
+- name: create solr user
+  user: name="{{ solr_user }}" uid="{{ solr_user_id|default(omit) }}" home="{{ solr_home }}" shell=/sbin/nologin system=yes state=present
+  tags:
+    - solr
+    - packages
+
 - name: get solr tar file
   get_url: url="{{ solr_download_url }}" dest="/usr/local/src/{{ solr_archive }}"
   register: solr_install
+  tags:
+    - solr
+    - packages
 
 - name: unarchive solr
   unarchive: src="/usr/local/src/{{ solr_archive }}" dest=/usr/local/src/ copy=no
   when: solr_install|changed
+  tags:
+    - solr
+    - packages
 
 - name: install solr
   command: /bin/mv /usr/local/src/{{ solr_package_name }} {{ solr_home }} creates={{ solr_home }}
   when: solr_install|changed
+  tags:
+    - solr
+    - packages
 
+- name: set solr dir permissions
+  file: path={{ solr_home }} owner={{ solr_user }} group={{ solr_user }} recurse=yes
+  when: solr_install|changed
+  tags:
+    - solr
+    - packages
+
+- name: install solr systemd service
+  template: src=solr.service.j2 dest=/usr/lib/systemd/system/solr.service owner=root group=root mode=0664
+  when: ansible_distribution_major_version|int > 6
+  notify: reload systemd
+  tags:
+    - solr
+    - configuration
+    - services
+
+- name: ensure solr is enabled and running
+  service: name=solr enabled=yes state=started
+  tags:
+    - solr
+    - configuration
+    - services
