@@ -23,6 +23,11 @@ Example Playbook
       roles:
          - { role: correcthorse.solr }
 
+Dependencies
+------------
+
+- correcthorse.common
+
 License
 -------
 
