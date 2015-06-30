@@ -1,5 +1,5 @@
 ---
-solr_version: 5.1.0
+solr_version: 5.2.1
 solr_mirror: http://mirror.cogentco.com/pub/apache/lucene/solr
 solr_package_name: "solr-{{ solr_version }}"
 solr_archive: "{{ solr_package_name }}.tgz"
