@@ -1,6 +1,6 @@
 ---
 - name: create solr user
-  user: name="{{ solr_user }}" uid="{{ solr_user_id|default(omit) }}" home="{{ solr_home }}" shell=/sbin/nologin system=yes state=present
+  user: name="{{ solr_user }}" uid="{{ solr_user_id|default(omit) }}" home="{{ solr_home }}" shell=/sbin/nologin system=yes createhome=no state=present
   tags:
     - solr
     - packages
