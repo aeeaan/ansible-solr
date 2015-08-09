@@ -15,6 +15,7 @@ Role Variables
 | solr_download_url	| "{{ solr_mirror }}/{{ solr_version }}/{{ solr_archive }}"	|				|
 | solr_home		| /opt/solr	  		     	   			|				|
 | solr_user		| solr								|				|
+| solr_cloud		| false								| enable cloud mode		|
 
 Example Playbook
 ----------------
