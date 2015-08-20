@@ -48,3 +48,12 @@
     - solr
     - configuration
     - services
+
+- name: configure firewalld for solr
+  firewalld: zone=public port="8983/tcp" permanent=true state=enabled
+  notify: reload firewall
+  when: solr_open_port and ansible_distribution_major_version|int > 6
+  tags:
+    - solr
+    - firewall
+    - configuration

@@ -16,6 +16,7 @@ Role Variables
 | solr_home		| /opt/solr	  		     	   			|				|
 | solr_user		| solr								|				|
 | solr_cloud		| false								| enable cloud mode		|
+| solr_open_port	| false								| 	       			|
 
 Example Playbook
 ----------------
