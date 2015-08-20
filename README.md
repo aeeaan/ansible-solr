@@ -17,6 +17,7 @@ Role Variables
 | solr_user		| solr								|				|
 | solr_cloud		| false								| enable cloud mode		|
 | solr_open_port	| false								| 	       			|
+| solr_memory		| 512m								| java heap size		|
 
 Example Playbook
 ----------------

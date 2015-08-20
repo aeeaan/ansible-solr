@@ -8,3 +8,4 @@ solr_home: /opt/solr
 solr_user: solr
 solr_cloud: false
 solr_open_port: false
+solr_memory: 512m
