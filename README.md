@@ -8,8 +8,8 @@ Role Variables
 
 | Variable		| Default							| Notes				|
 | :---			| :---								| :---				|
-| solr_version		| 5.1.0								|				|
-| solr_mirror		| http://mirror.cogentco.com/pub/apache/lucene/solr		|				|
+| solr_version		| 5.3.0								|				|
+| solr_mirror		| http://archive.apache.org/dist/lucene/solr			|				|
 | solr_package_name	| "solr-{{ solr_version }}"					|				|
 | solr_archive		| "{{ solr_package_name }}.tgz"					|				|
 | solr_download_url	| "{{ solr_mirror }}/{{ solr_version }}/{{ solr_archive }}"	|				|
