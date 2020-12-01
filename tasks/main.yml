@@ -14,21 +14,21 @@
 
 - name: unarchive solr
   unarchive: src="/usr/local/src/{{ solr_archive }}" dest=/usr/local/src/ copy=no
-  when: solr_install|changed
+  when: solr_install.changed
   tags:
     - solr
     - packages
 
 - name: install solr
   command: /bin/mv /usr/local/src/{{ solr_package_name }} {{ solr_home }} creates={{ solr_home }}
-  when: solr_install|changed
+  when: solr_install.changed
   tags:
     - solr
     - packages
 
 - name: set solr dir permissions
   file: path={{ solr_home }} owner={{ solr_user }} group={{ solr_user }} recurse=yes
-  when: solr_install|changed
+  when: solr_install.changed
   tags:
     - solr
     - packages
